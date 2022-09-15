@@ -31,35 +31,38 @@ function generateMarkdown(userInput, gitInfo) {
 * [Tests](#tests)` };
 
   let tempMarkdown = 
-  `# ${userInput.title !== 'N/A'}`;
+`# ${userInput.title}`;
+  
+  tempMarkdown +=
+`
+## License
+${userInput.license}
+`;
   tempMarkdown = tempMarkdown + 
-  `
-  ## Description 
+`
+## Description 
   
-  ${userInput.description}
-  `
+${userInput.description}
+`
   tempMarkdown += tableOC;
-  
-  tempMarkdown += `
-  * [License](#license)`;
   
   if (userInput.installation !== 'N/A') {
   tempMarkdown +=
-  `
-  ## Installation
+`
+## Installation
   
-  ${userInput.installation}`
+${userInput.installation}`
   };
   
   if (userInput.usage !== 'N/A') {
   
   tempMarkdown +=
   
-  `
+`
   
-  ## Usage 
+## Usage 
   
-  *Instructions and examples for use:*
+*Instructions and examples for use:*
   
   ${userInput.usage}`
   };
@@ -70,29 +73,31 @@ function generateMarkdown(userInput, gitInfo) {
 
   tempMarkdown +=
     
-  `
+`
   
-  ## Contributing
+## Contributing
   
-  ${userInput.contributing}`
+*Below are some contribution procedures*
+
+${userInput.contributing}`
   };
   
-  if (userInput.tests !== '') {
+  if (userInput.tests !== 'N/A') {
   
-  tempMarkdown +=
-  `
+tempMarkdown +=
+`
   
-  ## Tests
+## Tests
   
-  ${userInput.tests}`
+${userInput.tests}`
   };
 
-  tempMarkdown +=
-  `
-  ## License
-  
-  ${userInput.license}
-  `;
+tempMarkdown +=
+`
+## Questions?
+*github.com/${userInput.gituser}*
+*Reach out via email: ${userInput.email}*
+`;
 
   // let loopInput = []
   // for(var i in userInput)

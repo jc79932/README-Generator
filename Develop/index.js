@@ -6,7 +6,6 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input; 
 
-//WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
 
 const questions = [  
 
@@ -79,14 +78,44 @@ const questions = [
     }
 },
 {
+    type: 'input',
+    message: "Provide a good contact email.",
+    name: 'email',
+    validate: function (answer) {
+        if (answer.length == 0) {
+            return console.log("Invalid Value. Enter N/A to continue as blank.");
+        }
+        return true;
+    }
+},
+{
+    type: 'input',
+    message: "Enter your GitHub username.",
+    name: 'gituser',
+    validate: function (answer) {
+        if (answer.length == 0) {
+            return console.log("Invalid Value. Enter N/A to continue as blank.");
+        }
+        return true;
+    }
+},
+{
     type: 'list',
     message: "Choose a license for your project.",
-    choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
+    choices: ['GNU AGPLv3', 'GNU GPLv3', 'ISC', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
     name: 'license'
 }];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err){
+            return console.log("File not generated. Reason: " + err);
+        }
+        console.log("File generated with no errors.")
+    });
+}
+const asyncWriteOnFile = util.promisify(writeToFile);
 
 // TODO: Create a function to initialize app
 async function init() {
@@ -97,7 +126,8 @@ async function init() {
         const gitInfo = "Boby";
         const markdown = generateMarkdown(userInput, gitInfo);
         console.log(markdown);
-
+        await asyncWriteOnFile('../README.md', markdown)
+        
     } catch (error) {
         console.log(error);
     }

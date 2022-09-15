@@ -1,31 +1,35 @@
-# true
-  ## Description
+# README Generator
+## License
+The Unlicense
 
-  adh
-  ## Table of Contents
+## Description 
+  
+This generator creates README files
+## Table of Contents
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [Tests](#tests)
-* [License](#license)
-  ## Installation
+## Installation
+  
+CD to main directory, then run 'npm install', then run 'node index.js'
+  
+## Usage 
+  
+*Instructions and examples for use:*
+  
+  Enter prompts on console.
+  
+## Contributing
+  
+*Below are some contribution procedures*
 
-  fadh
-
-  ## Usage
-
-  *Instructions and examples for use:*
-
-  ah
-
-  ## Contributing
-
-  ah
-
-  ## Tests
-
-  ah
-  ## License
-
-  GNU AGPLv3
+Support me by reaching out to my email
+  
+## Tests
+  
+None
+## Questions?
+*github.com/jc79932*
+*Reach out via email: Jc79932@gmail.com*
