@@ -95,7 +95,9 @@ ${userInput.tests}`
 tempMarkdown +=
 `
 ## Questions?
+
 *github.com/${userInput.gituser}*
+
 *Reach out via email: ${userInput.email}*
 `;
 
